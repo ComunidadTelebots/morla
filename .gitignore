@@ -1,0 +1,13 @@
+# Node / VS Code / OS files
+.vscode/
+.DS_Store
+Thumbs.db
+*.log
+
+# Python server artifacts
+__pycache__/
+*.pyc
+
+# OneDrive files
+~$*
+*.tmp

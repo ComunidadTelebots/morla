@@ -1,0 +1,14 @@
+version: '3.9'
+
+services:
+  morla:
+    build: .
+    ports:
+      - "8080:80"
+    restart: unless-stopped
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.morla.rule=Host(`morladelavalderia.es`)"
+      - "traefik.http.routers.morla.entrypoints=websecure"
+      - "traefik.http.routers.morla.tls=true"
+      - "traefik.http.services.morla.loadbalancer.server.port=80"
