@@ -13,6 +13,7 @@ Todas las novedades del proyecto.
 - Añadida configuración de Docker Compose para levantar la web como servicio `morla`.
 - Configurado Traefik para publicar `morladelavalderia.es` por HTTPS.
 - Añadido soporte para `www.morladelavalderia.es`.
+- Añadido soporte para el dominio alternativo `morladelavalderia.duckdns.org`.
 - Eliminada la exposición directa del puerto `8080` para evitar conflictos con otros contenedores.
 - Conectado el servicio a la red externa `traefik` desde `docker-compose.yml`.
 - Añadida la etiqueta `traefik.docker.network=traefik` para que Traefik enrute al contenedor correcto.
