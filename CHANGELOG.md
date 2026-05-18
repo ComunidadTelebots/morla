@@ -8,6 +8,7 @@ Todas las novedades del proyecto.
 - Añadido acceso directo a Instagram con estilo degradado.
 - Añadidos subdominios: historia, patrimonio, turismo y eventos.
 - Añadida versión móvil con menú desplegable, navegación táctil y ajustes responsivos.
+- Añadido banner de aceptación de cookies y carga de Google Analytics solo tras aceptar.
 - Integrada analítica de Google con ID `G-F5P08EW3SV`.
 - Subida inicial del proyecto a GitHub en `ComunidadTelebots/morla`.
 - Añadido despliegue con Docker y Nginx mediante `Dockerfile`.
