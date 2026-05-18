@@ -1,8 +1,8 @@
-version: '3.9'
-
 services:
   morla:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
     restart: unless-stopped
     networks:
       - traefik
@@ -12,7 +12,30 @@ services:
       - "traefik.http.routers.morla.rule=Host(`morladelavalderia.es`) || Host(`www.morladelavalderia.es`) || Host(`morladelavalderia.duckdns.org`)"
       - "traefik.http.routers.morla.entrypoints=websecure"
       - "traefik.http.routers.morla.tls=true"
+      - "traefik.http.routers.morla.service=morla"
       - "traefik.http.services.morla.loadbalancer.server.port=80"
+
+  morla-tpv:
+    build:
+      context: .
+      dockerfile: Dockerfile.tpv
+    restart: unless-stopped
+    environment:
+      APP_SECRET: "${APP_SECRET}"
+      SESSION_COOKIE_SECURE: "${SESSION_COOKIE_SECURE:-true}"
+      TPV_USERS: "${TPV_USERS}"
+    volumes:
+      - ./data:/app/data
+    networks:
+      - traefik
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=traefik"
+      - "traefik.http.routers.morla-tpv.rule=Host(`tpv.morladelavalderia.es`)"
+      - "traefik.http.routers.morla-tpv.entrypoints=websecure"
+      - "traefik.http.routers.morla-tpv.tls=true"
+      - "traefik.http.routers.morla-tpv.service=morla-tpv"
+      - "traefik.http.services.morla-tpv.loadbalancer.server.port=80"
 
 networks:
   traefik:

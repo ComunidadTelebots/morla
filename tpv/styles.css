@@ -1,0 +1,542 @@
+:root {
+  --bg: #eef2ef;
+  --panel: #ffffff;
+  --ink: #202523;
+  --muted: #66706a;
+  --line: #dfe6e1;
+  --green: #246b45;
+  --green-dark: #174c31;
+  --amber: #f4b03e;
+  --shadow: 0 18px 42px rgba(28, 43, 35, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--ink);
+  background: linear-gradient(120deg, rgba(36, 107, 69, 0.08), rgba(244, 176, 62, 0.08)), var(--bg);
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.pos-shell {
+  display: grid;
+  grid-template-columns: minmax(340px, 440px) minmax(0, 1fr);
+  gap: 18px;
+  width: min(1440px, 100%);
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 18px;
+}
+
+.sale-panel,
+.catalog-panel {
+  min-width: 0;
+  border: 1px solid rgba(32, 37, 35, 0.08);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: var(--shadow);
+}
+
+.sale-panel {
+  display: grid;
+  grid-template-rows: auto minmax(280px, 1fr) auto auto;
+  overflow: hidden;
+}
+
+.topbar,
+.catalog-header,
+.ticket-head,
+.totals,
+.payment {
+  padding: 18px;
+}
+
+.topbar,
+.catalog-header,
+.ticket-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 8px;
+  background: var(--green);
+  color: #fff;
+  font-weight: 800;
+}
+
+.brand strong,
+.brand small {
+  display: block;
+}
+
+.brand small,
+.eyebrow,
+.sale-note,
+.empty-ticket span {
+  color: var(--muted);
+}
+
+.shift-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex: 0 0 auto;
+  font-weight: 700;
+  color: var(--green-dark);
+}
+
+.user-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.ghost-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 38px;
+  padding: 0 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--green-dark);
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #2ab46f;
+  box-shadow: 0 0 0 5px rgba(42, 180, 111, 0.16);
+}
+
+.ticket {
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  overflow: hidden;
+}
+
+.eyebrow {
+  margin: 0 0 4px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+h1,
+h2 {
+  margin: 0;
+  letter-spacing: 0;
+}
+
+h1 {
+  font-size: 1.55rem;
+}
+
+h2 {
+  font-size: 1.35rem;
+}
+
+.ghost-button,
+.method,
+.tab,
+.quantity-button {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--ink);
+  font-weight: 800;
+}
+
+.ghost-button {
+  padding: 10px 14px;
+}
+
+.ticket-items {
+  display: grid;
+  align-content: start;
+  gap: 10px;
+  height: calc(100% - 78px);
+  min-height: 250px;
+  padding: 0 18px 18px;
+  overflow: auto;
+}
+
+.empty-ticket {
+  display: grid;
+  place-items: center;
+  align-content: center;
+  min-height: 220px;
+  border: 1px dashed #cbd6cf;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.ticket-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fbfcfb;
+}
+
+.ticket-row strong,
+.ticket-row span {
+  display: block;
+}
+
+.ticket-row span {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.quantity-controls {
+  display: grid;
+  grid-template-columns: 34px 28px 34px;
+  align-items: center;
+  gap: 6px;
+  text-align: center;
+}
+
+.quantity-button {
+  width: 34px;
+  height: 34px;
+}
+
+.totals {
+  display: grid;
+  gap: 10px;
+}
+
+.totals div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.grand-total {
+  align-items: end;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+  font-size: 1.35rem;
+}
+
+.payment {
+  display: grid;
+  gap: 12px;
+}
+
+.payment-methods,
+.category-tabs {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+}
+
+.method,
+.tab {
+  min-height: 42px;
+  padding: 0 14px;
+  white-space: nowrap;
+}
+
+.method.is-active,
+.tab.is-active {
+  border-color: var(--green);
+  background: #e8f3ec;
+  color: var(--green-dark);
+}
+
+.pay-button {
+  min-height: 56px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--green);
+  color: #fff;
+  font-size: 1.08rem;
+  font-weight: 900;
+}
+
+.pay-button:hover {
+  background: var(--green-dark);
+}
+
+.pay-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.sale-note {
+  min-height: 24px;
+  margin: 0;
+}
+
+.catalog-panel {
+  padding: 18px;
+}
+
+.catalog-header {
+  padding: 0;
+  margin-bottom: 16px;
+}
+
+.catalog-header input {
+  width: min(320px, 45%);
+  min-height: 44px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0 14px;
+  background: #fff;
+}
+
+.category-tabs {
+  margin-bottom: 16px;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 12px;
+}
+
+.product-card {
+  display: grid;
+  gap: 12px;
+  min-height: 152px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  text-align: left;
+  box-shadow: 0 8px 20px rgba(28, 43, 35, 0.06);
+}
+
+.product-card:hover {
+  border-color: rgba(36, 107, 69, 0.55);
+}
+
+.product-icon {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  background: #f1f5f2;
+  font-weight: 900;
+  color: var(--green-dark);
+}
+
+.product-card strong {
+  display: block;
+}
+
+.product-card span {
+  color: var(--muted);
+}
+
+.product-price {
+  color: var(--green-dark);
+  font-weight: 900;
+}
+
+@media (max-width: 900px) {
+  .pos-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .sale-panel {
+    min-height: 720px;
+  }
+}
+
+@media (max-width: 620px) {
+  .pos-shell {
+    padding: 10px;
+  }
+
+  .topbar,
+  .catalog-header,
+  .ticket-head {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .shift-status {
+    align-self: flex-start;
+  }
+
+  .user-actions {
+    align-self: stretch;
+  }
+
+  .ghost-link {
+    justify-content: center;
+    flex: 1;
+  }
+
+  .catalog-header input {
+    width: 100%;
+  }
+
+  .product-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.auth-body {
+  display: grid;
+  place-items: center;
+  padding: 18px;
+}
+
+.auth-shell {
+  width: min(420px, 100%);
+}
+
+.auth-form,
+.price-editor {
+  display: grid;
+  gap: 18px;
+  border: 1px solid rgba(32, 37, 35, 0.08);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: var(--shadow);
+  padding: 22px;
+}
+
+.auth-brand {
+  margin-bottom: 8px;
+}
+
+.auth-form label {
+  display: grid;
+  gap: 7px;
+  color: var(--muted);
+  font-weight: 800;
+}
+
+.auth-form input,
+.price-row input {
+  min-height: 46px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0 12px;
+  background: #fff;
+  color: var(--ink);
+}
+
+.auth-error {
+  margin: 0;
+  color: #a8372b;
+  font-weight: 800;
+}
+
+.prices-shell {
+  width: min(860px, calc(100% - 24px));
+  margin: 0 auto;
+  padding: 18px 0;
+}
+
+.prices-topbar {
+  margin-bottom: 18px;
+  border: 1px solid rgba(32, 37, 35, 0.08);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: var(--shadow);
+}
+
+.editor-head,
+.price-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.save-prices {
+  width: auto;
+  padding: 0 18px;
+}
+
+.price-list {
+  display: grid;
+  gap: 10px;
+}
+
+.price-row {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 12px;
+  background: #fbfcfb;
+}
+
+.price-row span,
+.price-row small {
+  display: block;
+}
+
+.price-row small {
+  color: var(--muted);
+}
+
+.price-row input {
+  width: 130px;
+  text-align: right;
+  font-weight: 900;
+}
+
+@media (max-width: 620px) {
+  .editor-head,
+  .price-row {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .save-prices,
+  .price-row input {
+    width: 100%;
+  }
+}
+
+@media (max-width: 420px) {
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+}

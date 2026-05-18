@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TPV - Morla de la Valderia</title>
+  <link rel="stylesheet" href="/tpv/styles.css" />
+</head>
+<body>
+  <main class="pos-shell">
+    <section class="sale-panel" aria-label="Venta actual">
+      <header class="topbar">
+        <a class="brand" href="../index.html" aria-label="Volver a inicio">
+          <span class="brand-mark">M</span>
+          <span>
+            <strong>TPV Morla</strong>
+            <small>tpv.morladelavalderia.es</small>
+          </span>
+        </a>
+        <div class="shift-status">
+          <span class="status-dot" aria-hidden="true"></span>
+          <span id="sessionUser">Caja abierta</span>
+        </div>
+        <div class="user-actions">
+          <a class="ghost-link hidden" id="priceEditorLink" href="/tpv/precios.html">Precios</a>
+          <a class="ghost-link" href="/logout">Salir</a>
+        </div>
+      </header>
+
+      <section class="ticket" aria-label="Ticket">
+        <div class="ticket-head">
+          <div>
+            <p class="eyebrow">Mesa / venta</p>
+            <h1>Venta rapida</h1>
+          </div>
+          <button class="ghost-button" id="clearSale" type="button">Limpiar</button>
+        </div>
+        <div class="ticket-items" id="ticketItems"></div>
+      </section>
+
+      <section class="totals" aria-label="Totales">
+        <div>
+          <span>Subtotal</span>
+          <strong id="subtotal">0,00 EUR</strong>
+        </div>
+        <div>
+          <span>IVA incluido</span>
+          <strong id="tax">0,00 EUR</strong>
+        </div>
+        <div class="grand-total">
+          <span>Total</span>
+          <strong id="total">0,00 EUR</strong>
+        </div>
+      </section>
+
+      <section class="payment" aria-label="Pago">
+        <div class="payment-methods" role="group" aria-label="Metodo de pago">
+          <button class="method is-active" data-method="Tarjeta" type="button">Tarjeta</button>
+          <button class="method" data-method="Efectivo" type="button">Efectivo</button>
+          <button class="method" data-method="Bizum" type="button">Bizum</button>
+        </div>
+        <button class="pay-button" id="payButton" type="button">Cobrar 0,00 EUR</button>
+        <p class="sale-note" id="saleNote" aria-live="polite"></p>
+      </section>
+    </section>
+
+    <section class="catalog-panel" aria-label="Catalogo">
+      <header class="catalog-header">
+        <div>
+          <p class="eyebrow">Catalogo</p>
+          <h2>Chiringuito y eventos</h2>
+        </div>
+        <input id="searchInput" type="search" placeholder="Buscar producto" aria-label="Buscar producto" />
+      </header>
+
+      <div class="category-tabs" role="tablist" aria-label="Categorias">
+        <button class="tab is-active" data-category="todo" type="button">Todo</button>
+        <button class="tab" data-category="bebidas" type="button">Bebidas</button>
+        <button class="tab" data-category="comida" type="button">Comida</button>
+        <button class="tab" data-category="merch" type="button">Merch</button>
+      </div>
+
+      <div class="product-grid" id="productGrid"></div>
+    </section>
+  </main>
+
+  <template id="emptyTicketTemplate">
+    <div class="empty-ticket">
+      <strong>Sin productos</strong>
+      <span>Selecciona articulos del catalogo para empezar la venta.</span>
+    </div>
+  </template>
+
+  <script src="/tpv/app.js"></script>
+</body>
+</html>

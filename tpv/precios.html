@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Editar precios - TPV Morla</title>
+  <link rel="stylesheet" href="/tpv/styles.css" />
+</head>
+<body>
+  <main class="prices-shell">
+    <header class="topbar prices-topbar">
+      <a class="brand" href="/tpv/index.html">
+        <span class="brand-mark">M</span>
+        <span>
+          <strong>Editar precios</strong>
+          <small>Solo usuarios editor</small>
+        </span>
+      </a>
+      <div class="user-actions">
+        <a class="ghost-link" href="/tpv/index.html">TPV</a>
+        <a class="ghost-link" href="/logout">Salir</a>
+      </div>
+    </header>
+
+    <section class="price-editor">
+      <div class="editor-head">
+        <div>
+          <p class="eyebrow">Catalogo</p>
+          <h1>Precios de venta</h1>
+        </div>
+        <button class="pay-button save-prices" id="savePrices" type="button">Guardar precios</button>
+      </div>
+      <div class="price-list" id="priceList"></div>
+      <p class="sale-note" id="priceNote" aria-live="polite"></p>
+    </section>
+  </main>
+  <script src="/tpv/prices.js"></script>
+</body>
+</html>

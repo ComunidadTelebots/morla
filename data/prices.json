@@ -1,0 +1,13 @@
+[
+  { "id": "agua", "name": "Agua", "category": "bebidas", "price": 1.2, "shortcut": "AG" },
+  { "id": "refresco", "name": "Refresco", "category": "bebidas", "price": 2, "shortcut": "RF" },
+  { "id": "cerveza", "name": "Cerveza", "category": "bebidas", "price": 2.2, "shortcut": "CV" },
+  { "id": "cafe", "name": "Cafe", "category": "bebidas", "price": 1.4, "shortcut": "CF" },
+  { "id": "bocadillo", "name": "Bocadillo", "category": "comida", "price": 4.5, "shortcut": "BO" },
+  { "id": "empanada", "name": "Empanada", "category": "comida", "price": 3.5, "shortcut": "EM" },
+  { "id": "pincho", "name": "Pincho", "category": "comida", "price": 2.8, "shortcut": "PI" },
+  { "id": "menu", "name": "Menu popular", "category": "comida", "price": 9.5, "shortcut": "MP" },
+  { "id": "panuelofiesta", "name": "Panuelo fiestas", "category": "merch", "price": 6, "shortcut": "PF" },
+  { "id": "postal", "name": "Postal Morla", "category": "merch", "price": 1.5, "shortcut": "PM" },
+  { "id": "donativo", "name": "Donativo", "category": "merch", "price": 5, "shortcut": "DO" }
+]

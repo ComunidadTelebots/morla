@@ -6,3 +6,6 @@ Dockerfile
 docker-compose.yml
 *.log
 *.tmp
+.env
+.env.*
+!.env.example

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Iniciar sesion - TPV Morla</title>
+  <link rel="stylesheet" href="/tpv/styles.css" />
+</head>
+<body class="auth-body">
+  <main class="auth-shell">
+    <form class="auth-form" method="post" action="/login">
+      <a class="brand auth-brand" href="../index.html">
+        <span class="brand-mark">M</span>
+        <span>
+          <strong>TPV Morla</strong>
+          <small>Acceso privado</small>
+        </span>
+      </a>
+      <div>
+        <p class="eyebrow">Inicio de sesion</p>
+        <h1>Entra con tu usuario</h1>
+      </div>
+      <label>
+        Usuario
+        <input name="username" type="text" autocomplete="username" required />
+      </label>
+      <label>
+        Contrasena
+        <input name="password" type="password" autocomplete="current-password" required />
+      </label>
+      <p class="auth-error" id="authError" hidden>Usuario o contrasena incorrectos.</p>
+      <button class="pay-button" type="submit">Entrar</button>
+    </form>
+  </main>
+  <script src="/tpv/login.js"></script>
+</body>
+</html>
