@@ -40,6 +40,37 @@ body {
   margin-top: 18px;
 }
 
+.mobile-nav-toggle {
+  display: none;
+}
+
+.mobile-nav-icon {
+  position: relative;
+  width: 18px;
+  height: 2px;
+  border-radius: 999px;
+  background: currentColor;
+}
+
+.mobile-nav-icon::before,
+.mobile-nav-icon::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 18px;
+  height: 2px;
+  border-radius: 999px;
+  background: currentColor;
+}
+
+.mobile-nav-icon::before {
+  top: -6px;
+}
+
+.mobile-nav-icon::after {
+  top: 6px;
+}
+
 .site-nav a {
   color: rgba(255, 255, 255, 0.9);
   text-decoration: none;
@@ -259,10 +290,93 @@ button:hover {
 }
 
 @media (max-width: 640px) {
-  .site-header {
-    padding: 32px 0 40px;
+  .container {
+    width: min(100% - 24px, 1100px);
   }
+
+  .site-header {
+    padding: 28px 0 32px;
+    text-align: left;
+  }
+
+  .site-header h1 {
+    font-size: 2.1rem;
+    line-height: 1.08;
+  }
+
+  .subtitle {
+    font-size: 0.98rem;
+  }
+
+  .mobile-nav-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    min-height: 48px;
+    margin-top: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    background: rgba(255, 255, 255, 0.14);
+    color: #fff;
+    font-weight: 700;
+  }
+
+  .site-nav {
+    display: none;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-top: 12px;
+  }
+
+  .site-nav.is-open {
+    display: grid;
+  }
+
+  .site-nav a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 46px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.12);
+    text-align: center;
+  }
+
+  .hero {
+    padding: 34px 0 18px;
+  }
+
   .hero h2 {
     font-size: 1.6rem;
+    line-height: 1.18;
+  }
+
+  .stats-section,
+  .info-section,
+  .contact-section,
+  .card,
+  .event-card {
+    border-radius: 12px;
+    padding: 20px;
+  }
+
+  .stats-grid,
+  .cards,
+  .links-grid,
+  .events-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .link-card {
+    min-height: 54px;
+    border-radius: 12px;
+  }
+
+  button {
+    width: 100%;
+    justify-content: center;
+    min-height: 48px;
+    border-radius: 12px;
   }
 }
