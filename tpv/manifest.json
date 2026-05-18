@@ -1,0 +1,17 @@
+{
+  "name": "TPV Morla de la Valderia",
+  "short_name": "TPV Morla",
+  "description": "Terminal Punto de Venta",
+  "start_url": "/tpv/index.html",
+  "display": "standalone",
+  "background_color": "#eef2ef",
+  "theme_color": "#246b45",
+  "icons": [
+    {
+      "src": "/tpv/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

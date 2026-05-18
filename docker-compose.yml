@@ -12,6 +12,7 @@ services:
       - "traefik.http.routers.morla.rule=Host(`morladelavalderia.es`) || Host(`www.morladelavalderia.es`) || Host(`morladelavalderia.duckdns.org`)"
       - "traefik.http.routers.morla.entrypoints=websecure"
       - "traefik.http.routers.morla.tls=true"
+      - "traefik.http.routers.morla.tls.certresolver=letsencrypt"
       - "traefik.http.routers.morla.service=morla"
       - "traefik.http.services.morla.loadbalancer.server.port=80"
 
@@ -34,6 +35,7 @@ services:
       - "traefik.http.routers.morla-tpv.rule=Host(`tpv.morladelavalderia.es`)"
       - "traefik.http.routers.morla-tpv.entrypoints=websecure"
       - "traefik.http.routers.morla-tpv.tls=true"
+      - "traefik.http.routers.morla-tpv.tls.certresolver=letsencrypt"
       - "traefik.http.routers.morla-tpv.service=morla-tpv"
       - "traefik.http.services.morla-tpv.loadbalancer.server.port=80"
 

@@ -224,3 +224,7 @@ async function init() {
 init().catch(() => {
   saleNote.textContent = 'No se pudo cargar el catalogo';
 });
+
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/tpv/sw.js').catch(() => {});
+}

@@ -225,6 +225,9 @@ class MorlaHandler(BaseHTTPRequestHandler):
         if path in {"/tpv/styles.css", "/tpv/login.js"}:
             self.serve_file(ROOT / path.lstrip("/"), private=True)
             return
+        if path in {"/tpv/manifest.json", "/tpv/sw.js", "/tpv/icon.svg"}:
+            self.serve_file(ROOT / path.lstrip("/"), private=False)
+            return
         if path == "/logout":
             self.handle_logout()
             return
