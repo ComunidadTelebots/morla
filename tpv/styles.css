@@ -540,3 +540,99 @@ h2 {
     grid-template-columns: 1fr;
   }
 }
+
+.login-tabs {
+  display: flex;
+  border-bottom: 1px solid var(--line);
+}
+
+.login-tab {
+  padding: 0.5rem 1.1rem;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  cursor: pointer;
+  color: var(--muted);
+  font-size: 0.92rem;
+  font-family: inherit;
+  font-weight: 700;
+}
+
+.login-tab.is-active {
+  color: var(--green-dark);
+  border-bottom-color: var(--green);
+}
+
+.login-inner-form {
+  display: grid;
+  gap: 18px;
+}
+
+.login-inner-form label {
+  display: grid;
+  gap: 7px;
+  color: var(--muted);
+  font-weight: 800;
+}
+
+.login-inner-form input {
+  min-height: 46px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0 12px;
+  background: #fff;
+  color: var(--ink);
+}
+
+.local-section {
+  margin-top: 18px;
+}
+
+.user-add-form {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 12px;
+}
+
+.user-add-form input,
+.user-add-form select {
+  min-height: 44px;
+  padding: 0 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font: inherit;
+  background: #fff;
+  color: var(--ink);
+}
+
+.backup-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+.backup-import-label {
+  cursor: pointer;
+}
+
+.backup-import-label input {
+  display: none;
+}
+
+.login-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(238, 242, 239, 0.97);
+  display: grid;
+  place-items: center;
+  padding: 18px;
+  z-index: 100;
+}
+
+.offline-login-form {
+  width: min(400px, 100%);
+}

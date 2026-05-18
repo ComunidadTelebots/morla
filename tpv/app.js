@@ -1,5 +1,31 @@
 let products = [];
 
+function getLocalSession() {
+  try {
+    const data = JSON.parse(localStorage.getItem('morla_local_session'));
+    if (!data) return null;
+    if (data.expires_at && data.expires_at < Date.now()) {
+      localStorage.removeItem('morla_local_session');
+      return null;
+    }
+    return data;
+  } catch { return null; }
+}
+
+function clearLocalSession() {
+  localStorage.removeItem('morla_local_session');
+}
+
+async function hashPassword(username, password) {
+  const enc = new TextEncoder();
+  const key = await crypto.subtle.importKey('raw', enc.encode(password), 'PBKDF2', false, ['deriveBits']);
+  const bits = await crypto.subtle.deriveBits(
+    { name: 'PBKDF2', salt: enc.encode(username), iterations: 100000, hash: 'SHA-256' },
+    key, 256
+  );
+  return Array.from(new Uint8Array(bits)).map(b => b.toString(16).padStart(2, '0')).join('');
+}
+
 const state = {
   cart: new Map(),
   category: 'todo',
@@ -208,16 +234,98 @@ async function loadJson(url) {
   return response.json();
 }
 
+function useLocalMode(session) {
+  sessionUser.textContent = `${session.username} · ${session.role} · local`;
+  priceEditorLink.classList.add('hidden');
+
+  const logoutLink = document.getElementById('logoutLink');
+  if (logoutLink) {
+    logoutLink.addEventListener('click', e => {
+      e.preventDefault();
+      clearLocalSession();
+      location.reload();
+    });
+  }
+
+  try {
+    const payload = JSON.parse(localStorage.getItem('morla_products') || '{"products":[]}');
+    products = Array.isArray(payload.products) ? payload.products : [];
+  } catch {}
+  render();
+}
+
+function showLocalLogin() {
+  const overlay = document.createElement('div');
+  overlay.className = 'login-overlay';
+  overlay.innerHTML = `
+    <div class="auth-form offline-login-form">
+      <div>
+        <p class="eyebrow">Sin conexion</p>
+        <h1>Acceso local</h1>
+      </div>
+      <form id="offlineLoginForm" class="login-inner-form">
+        <label>Usuario<input name="username" type="text" autocomplete="username" required /></label>
+        <label>Contrasena<input name="password" type="password" autocomplete="current-password" required /></label>
+        <p class="auth-error" id="offlineError" hidden>Usuario o contrasena incorrectos.</p>
+        <button class="pay-button" type="submit">Entrar</button>
+      </form>
+    </div>
+  `;
+  document.body.appendChild(overlay);
+
+  document.getElementById('offlineLoginForm').addEventListener('submit', async e => {
+    e.preventDefault();
+    const username = e.target.elements.username.value.trim();
+    const password = e.target.elements.password.value;
+    const errorEl = document.getElementById('offlineError');
+    errorEl.hidden = true;
+
+    let users = [];
+    try { users = JSON.parse(localStorage.getItem('morla_local_users') || '[]'); } catch {}
+
+    const user = users.find(u => u.username === username);
+    if (!user) { errorEl.hidden = false; return; }
+
+    const hash = await hashPassword(username, password);
+    if (hash !== user.passwordHash) { errorEl.hidden = false; return; }
+
+    localStorage.setItem('morla_local_session', JSON.stringify({
+      username: user.username,
+      role: user.role,
+      local: true,
+      expires_at: Date.now() + 12 * 60 * 60 * 1000,
+    }));
+
+    overlay.remove();
+    useLocalMode(getLocalSession());
+  });
+}
+
 async function init() {
   render();
-  const session = await loadJson('/api/session');
+
+  const localSession = getLocalSession();
+  if (localSession) {
+    useLocalMode(localSession);
+    return;
+  }
+
+  let session;
+  try {
+    session = await loadJson('/api/session');
+  } catch {
+    showLocalLogin();
+    return;
+  }
   if (!session) return;
+
   sessionUser.textContent = `${session.username} · ${session.role}`;
   priceEditorLink.classList.toggle('hidden', !session.canEditPrices);
 
   const payload = await loadJson('/api/products');
   if (!payload) return;
   products = payload.products;
+  localStorage.setItem('morla_products', JSON.stringify(payload));
   render();
 }
 
@@ -226,5 +334,5 @@ init().catch(() => {
 });
 
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/tpv/sw.js').catch(() => {});
+  navigator.serviceWorker.register('/sw.js').catch(() => {});
 }

@@ -33,6 +33,43 @@
       <div class="price-list" id="priceList"></div>
       <p class="sale-note" id="priceNote" aria-live="polite"></p>
     </section>
+
+    <section class="price-editor local-section">
+      <div class="editor-head">
+        <div>
+          <p class="eyebrow">Acceso sin conexion</p>
+          <h2>Usuarios locales</h2>
+        </div>
+      </div>
+      <div class="price-list" id="userList"></div>
+      <form class="user-add-form" id="addUserForm">
+        <input id="newUsername" type="text" placeholder="Nombre de usuario" required />
+        <input id="newPassword" type="password" placeholder="Contrasena" required />
+        <select id="newRole">
+          <option value="cajero">Cajero</option>
+          <option value="editor">Editor</option>
+        </select>
+        <button class="pay-button save-prices" type="submit">Anadir usuario</button>
+      </form>
+      <p class="sale-note" id="userNote" aria-live="polite"></p>
+    </section>
+
+    <section class="price-editor local-section">
+      <div class="editor-head">
+        <div>
+          <p class="eyebrow">Datos locales</p>
+          <h2>Copia de seguridad</h2>
+        </div>
+      </div>
+      <div class="backup-actions">
+        <button class="pay-button save-prices" id="exportBackup" type="button">Exportar copia</button>
+        <label class="ghost-link backup-import-label">
+          Importar copia
+          <input type="file" id="importFile" accept=".json" />
+        </label>
+      </div>
+      <p class="sale-note" id="backupNote" aria-live="polite"></p>
+    </section>
   </main>
   <script src="/tpv/prices.js"></script>
 </body>

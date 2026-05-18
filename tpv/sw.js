@@ -1,5 +1,5 @@
-const CACHE = 'morla-tpv-v1';
-const SHELL = ['/tpv/index.html', '/tpv/styles.css', '/tpv/app.js'];
+const CACHE = 'morla-tpv-v2';
+const SHELL = ['/tpv/index.html', '/tpv/styles.css', '/tpv/app.js', '/tpv/login.js'];
 
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(CACHE).then(c => c.addAll(SHELL)));
