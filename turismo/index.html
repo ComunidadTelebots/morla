@@ -3,42 +3,111 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Turismo - Morla de la Valdería</title>
+  <title>Geografía y Entorno - Morla de la Valdería</title>
   <link rel="stylesheet" href="../styles.css" />
-  <script src="../analytics.js"></script>
+  <script src="../search.js" charset="utf-8" defer></script>
+  <script src="../analytics.js" defer></script>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container">
-      <h1>Turismo en Morla</h1>
-      <button class="mobile-nav-toggle" type="button" aria-expanded="false" aria-controls="mainNav">
-        <span class="mobile-nav-icon" aria-hidden="true"></span>
-        <span>Menú</span>
-      </button>
-      <nav id="mainNav" class="site-nav" aria-label="Navegación de turismo">
-        <a href="../index.html">Inicio</a>
+  <header class="site-header subpage-header">
+    <div class="container top-bar">
+      <a href="../index.html" class="logo">Morla</a>
+      <button class="mobile-nav-toggle" aria-label="Menú">☰</button>
+      <nav class="site-nav">
+        <a href="#" class="search-trigger">🔍 Buscar</a>
         <a href="../historia/index.html">Historia</a>
-        <a href="../patrimonio/index.html">Patrimonio</a>
+        <a href="../turismo/index.html" class="active">Geografía</a>
+        <a href="../patrimonio/index.html">Arquitectura</a>
         <a href="../eventos/index.html">Eventos</a>
-        <a class="instagram-link" href="https://www.instagram.com/morladelavalderia/" target="_blank" rel="noreferrer">📷 Instagram</a>
+        <a href="../asociacion/index.html">Asociación</a>
+        <a href="../blog/index.html">Blog</a>
       </nav>
+    </div>
+    <div class="container hero-content">
+      <h1>Geografía y Entorno Natural</h1>
     </div>
   </header>
 
-  <main class="container">
-    <section class="info-section">
-      <h2>Rutas y paisaje</h2>
-      <p>Morla se asoma al valle del Eria, rodeada por la sierra de Cabrera y las estribaciones del Teleno. El entorno es ideal para paseos de naturaleza, observación de formaciones rocosas y disfrutar de la calma rural.</p>
-      <p>La geología local ofrece cuarcitas, pizarras y sedimentos neógenos que aportan un paisaje diverso y colorido. Las laderas y canchales del valle son un buen ejemplo de la interacción entre montaña y río en León.</p>
-      <p>Para el visitante, Morla es un destino tranquilo con naturaleza auténtica y arquitectura tradicional; perfecto para una escapada de turismo rural en Castilla y León.</p>
-    </section>
+  <main class="container subpage-layout">
+    <article class="subpage-content">
+      <h2>El paisaje de La Valdería</h2>
+      <p>Situada en un territorio muy agreste articulado en torno a la sierra de Cabrera y a las estribaciones orientales de la sierra del Teleno. Morla es el último pueblo de la comarca de la Valdería, según marca la carretera que conecta Castrocontrigo con Truchas (capital de La Cabrera Alta); sin embargo, es el primero que recorre el río Eria cuando alcanza tierras valderienses. Todas las aguas recogidas por este valle son conducidas hacia el Eria.</p>
+      <p>El amplio valle en el que se asienta Morla se extiende desde el noroeste hacia el sureste, dirección que coincide con el curso de dicho río.</p>
+      
+      <h2>Contexto Geológico</h2>
+      
+      <h3>Los materiales ordovícicos</h3>
+      <p>Las rocas más antiguas de Morla datan del final del período Cámbrico y de principios del período Ordovícico. Incluyen pizarras muy oscuras, areniscas y, sobre todo, cuarcitas. Estas últimas forman grandes relieves (conocidos localmente como peñas o piñeus en Morla).</p>
+      <p>Dentro del territorio de Morla y siempre ligados a la vertiente sur del valle (sierra de Cabrera), aparecen algunos afloramientos de otro tipo de pizarras y areniscas, en este caso bastante menos resistentes. Apenas generan relieves notables y suelen aparecer cubiertas de vegetación. Aunque no son abundantes, estas rocas contienen fósiles de los organismos que vivieron en aquel antiguo mar.</p>
+
+      <h3>Los materiales neógenos</h3>
+      <p>A lo largo del Neógeno las montañas se erosionaron. En las laderas del Teleno menos inclinadas se acumularon grandes extensiones de sedimentos y forman una banda paralela al eje principal del valle. Son sedimentos muy poco consolidados y constan de limos, arenas y pequeños cantos de arenisca, que pueden estar muy alterados por su prolongada exposición a la atmósfera, siendo fáciles de disgregar incluso con la mano (la llamada piedra moleña).</p>
+      <p>El elevado contenido en hierro de las rocas originales confiere a estos sedimentos neógenos su característico color anaranjado. Además, las rocas ordovícicas de las que proceden incluyen minúsculas partículas de oro (metal pesado que el agua moviliza menos), algo que los romanos supieron detectar y aprovechar en toda esta zona.</p>
+
+      <h3>Los materiales cuaternarios</h3>
+      <p>Los canchales o lleras (formados a lo largo del Cuaternario) derivan de la fracturación de grandes afloramientos rocosos motivada por varios factores meteorológicos, entre los cuales destaca el ciclo hielo-deshielo. Las superficies cubiertas por las lleras pueden ser muy amplias, tal como se puede apreciar en las laderas de la sierra del Teleno o en el inmenso canchal que cubre la ladera septentrional de la sierra de Cabrera, el cual los vecinos de Morla han dividido en sectores con nombres como la LLera, el Pedrón o la Grandiella.</p>
+      <p>Existen otro tipo de materiales cuaternarios ligados al fondo del valle y a los cauces de los ríos, conocidos como los aluviones.</p>
+    </article>
+    
+    <aside class="subpage-sidebar">
+      <div class="ig-widget">
+        <div class="ig-header">
+          <h3>@morladelavalderia</h3>
+          <p>Síguenos en Instagram</p>
+        </div>
+        <div class="ig-body">
+          <p>Descubre el día a día, las tradiciones, la naturaleza y la gente de Morla de la Valdería a través de nuestras fotografías.</p>
+          <a href="https://www.instagram.com/morladelavalderia/" target="_blank" rel="noopener noreferrer" class="ig-btn">
+            📷 Ver Perfil
+          </a>
+        </div>
+      </div>
+    </aside>
   </main>
 
   <footer class="site-footer">
     <div class="container">
-      <p>Subdominio de turismo - Morla de la Valdería</p>
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h2>Morla</h2>
+          <p>Pedanía de Castrocontrigo en la comarca de la Valdería, provincia de León.</p>
+        </div>
+        <div class="footer-links-container">
+          <div class="footer-links-col">
+            <h4>Secciones</h4>
+            <a href="../historia/index.html">Historia Detallada</a>
+            <a href="../patrimonio/index.html">Patrimonio</a>
+            <a href="../turismo/index.html">Turismo</a>
+            <a href="../eventos/index.html">Eventos</a>
+          </div>
+          <div class="footer-links-col">
+            <h4>Comunidad</h4>
+            <a href="../blog/index.html">Blog Local</a>
+            <a href="https://tpv.morladelavalderia.es/">Sistema TPV</a>
+            <a href="https://www.instagram.com/morladelavalderia/" target="_blank" rel="noreferrer">Instagram</a>
+          </div>
+          <div class="footer-links-col">
+            <h4>Contacto</h4>
+            <a href="#" id="contactButton">Enviar Mensaje</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-logos">
+          <a href="https://www.castrocontrigo.es" target="_blank" title="Ayuntamiento de Castrocontrigo">
+            <img src="../logo_ayto.png" alt="Ayuntamiento de Castrocontrigo" style="height: 60px;">
+          </a>
+          <a href="../asociacion/index.html" title="Asociación Los Castaños / Morla de la Valdería" style="margin-left: 20px;">
+            <img src="../logo_asociacion.jpg" alt="Asociación Los Castaños" style="height: 60px; border-radius: 50%; box-shadow: 0 2px 6px rgba(0,0,0,0.15);">
+          </a>
+        </div>
+        <div class="footer-copyright" style="margin-top: 20px;">
+          &copy; 2026 Web de Morla de la Valdería. Todos los derechos reservados.
+        </div>
+      </div>
     </div>
   </footer>
+
   <script src="../app.js"></script>
 </body>
 </html>

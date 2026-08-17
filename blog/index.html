@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog y Noticias - Morla de la Valdería</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <script src="../search.js" charset="utf-8" defer></script>
+  <script src="../analytics.js" defer></script>
+  <style>
+    .blog-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 60px;
+      margin-top: 40px;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .blog-card {
+      background: transparent;
+      display: flex;
+      flex-direction: row;
+      gap: 30px;
+      padding-bottom: 60px;
+      border-bottom: 1px solid #ddd;
+    }
+    @media (max-width: 768px) {
+      .blog-card { flex-direction: column; }
+    }
+    .blog-card:last-child {
+      border-bottom: none;
+    }
+    .blog-card img {
+      width: auto; max-width: 150px;
+      height: auto;
+      max-height: 150px;
+      object-fit: contain;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      flex-shrink: 0;
+    }
+    .blog-card-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .blog-date {
+      font-size: 0.85rem;
+      color: #888;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .blog-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      margin-bottom: 15px;
+      color: #2c3e50;
+    }
+    .blog-card p {
+      color: #555;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      margin-bottom: 20px;
+      flex-grow: 1;
+    }
+    .btn-read-more {
+      align-self: flex-start;
+      background: transparent;
+      color: #4a5c50;
+      border: 1px solid #4a5c50;
+      padding: 8px 20px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+    .btn-read-more:hover {
+      background: #4a5c50;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header subpage-header">
+    <div class="container top-bar">
+      <a href="../index.html" class="logo">Morla</a>
+      <button class="mobile-nav-toggle" aria-label="Menú">☰</button>
+      <nav class="site-nav">
+        <a href="#" class="search-trigger">🔍 Buscar</a>
+        <a href="../historia/index.html">Historia</a>
+        <a href="../turismo/index.html">Geografía</a>
+        <a href="../patrimonio/index.html">Arquitectura</a>
+        <a href="../eventos/index.html">Eventos</a>
+        <a href="../asociacion/index.html">Asociación</a>
+        <a href="../blog/index.html" class="active">Blog</a>
+      </nav>
+    </div>
+    <div class="container hero-content">
+      <h1>Blog y Actualidad</h1>
+      <p class="subtitle" style="color: rgba(255,255,255,0.9); max-width: 600px; margin: 15px auto 0;">Descubre las últimas noticias, historias y tradiciones de nuestro pueblo.</p>
+    </div>
+  </header>
+
+  <main class="container subpage-layout">
+    <article class="subpage-content" style="width: 100%;">
+      
+      <div class="blog-grid">
+        
+        <!-- Post 1 -->
+        <div class="blog-card">
+          <img src="../assets/cartel_san_bartolo.jpg" alt="Cartel Fiestas San Bartolo" onerror="this.src='../castanal_fondo.jpg'">
+          <div class="blog-card-content">
+            <span class="blog-date">24 de Agosto</span>
+            <h3>Las Fiestas de San Bartolo: Tradición y Reencuentro</h3>
+            <p>Descubre el programa completo de las fiestas grandes de Morla, donde la música, las verbenas y la tradición unen a todos los vecinos en los días más calurosos del verano.</p>
+            <a href="post-san-bartolo.html" class="btn-read-more">Leer artículo</a>
+          </div>
+        </div>
+
+        <!-- Post 2 -->
+        <div class="blog-card">
+          <img src="../patrimonio/castanal.jpg" alt="Ruta de La Castañal" onerror="this.src='../castanal_fondo.jpg'">
+          <div class="blog-card-content">
+            <span class="blog-date">Turismo y Naturaleza</span>
+            <h3>Descubriendo la Ruta de los Castaños Utópicos</h3>
+            <p>Un paseo imprescindible por la geografía valderiense. Acompáñanos a recorrer el sendero histórico hacia la sierra, descubriendo castaños centenarios de formas imposibles.</p>
+            <a href="post-ruta-castanos.html" class="btn-read-more">Leer artículo</a>
+          </div>
+        </div>
+
+        <!-- Post 3 -->
+        <div class="blog-card">
+          <img src="../castanal_fondo.jpg" alt="San Isidro Labrador">
+          <div class="blog-card-content">
+            <span class="blog-date">15 de Mayo</span>
+            <h3>Celebración de San Isidro Labrador en Morla</h3>
+            <p>Honramos nuestras raíces agrícolas en la fiesta de San Isidro. Repasamos la historia de esta celebración y su profunda conexión con los campos y las cosechas de La Valdería.</p>
+            <a href="post-san-isidro.html" class="btn-read-more">Leer artículo</a>
+          </div>
+        </div>
+
+      </div>
+
+    </article>
+  </main>
+
+    <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h2>Morla</h2>
+          <p>Pedanía de Castrocontrigo en la comarca de la Valdería, provincia de León.</p>
+        </div>
+        <div class="footer-links-container">
+          <div class="footer-links-col">
+            <h4>Secciones</h4>
+            <a href="../historia/index.html">Historia Detallada</a>
+            <a href="../patrimonio/index.html">Patrimonio</a>
+            <a href="../turismo/index.html">Turismo</a>
+            <a href="../eventos/index.html">Eventos</a>
+          </div>
+          <div class="footer-links-col">
+            <h4>Comunidad</h4>
+            <a href="../blog/index.html">Blog Local</a>
+            <a href="https://tpv.morladelavalderia.es/">Sistema TPV</a>
+            <a href="https://www.instagram.com/morladelavalderia/" target="_blank" rel="noreferrer">Instagram</a>
+          </div>
+          <div class="footer-links-col">
+            <h4>Contacto</h4>
+            <a href="#" id="contactButton">Enviar Mensaje</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-logos">
+          <a href="https://www.castrocontrigo.es" target="_blank" title="Ayuntamiento de Castrocontrigo">
+            <img src="../logo_ayto.png" alt="Ayuntamiento de Castrocontrigo" style="height: 60px;">
+          </a>
+          <a href="../asociacion/index.html" title="Asociación Los Castaños / Morla de la Valdería" style="margin-left: 20px;">
+            <img src="../logo_asociacion.jpg" alt="Asociación Los Castaños" style="height: 60px; border-radius: 50%; box-shadow: 0 2px 6px rgba(0,0,0,0.15);">
+          </a>
+        </div>
+        <div class="footer-copyright" style="margin-top: 20px;">
+          &copy; 2026 Web de Morla de la Valdería. Todos los derechos reservados.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../app.js"></script>
+</body>
+</html>

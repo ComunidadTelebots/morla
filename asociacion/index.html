@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Asociación Los Castaños - Morla de la Valdería</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <script src="../analytics.js" defer></script>
+  <script src="../search.js" defer></script>
+</head>
+<body>
+  <header class="site-header" style="min-height: 40vh; padding-bottom: 2rem;">
+    <div class="container top-bar">
+      <a href="../index.html" class="logo">Morla</a>
+      <button class="mobile-nav-toggle" aria-label="Menú">☰</button>
+      <nav class="site-nav">
+        <a href="#" class="search-trigger">🔍 Buscar</a>
+        <a href="../historia/index.html">Historia</a>
+        <a href="../turismo/index.html">Geografía</a>
+        <a href="../patrimonio/index.html">Arquitectura</a>
+        <a href="../eventos/index.html">Eventos</a>
+        <a href="../asociacion/index.html" class="active">Asociación</a>
+        <a href="../blog/index.html">Blog</a>
+      </nav>
+    </div>
+    <div class="container hero-content">
+      <h1>Asociación Los Castaños</h1>
+      <p class="subtitle">El motor joven que mantiene vivas las tradiciones y la cultura de Morla de la Valdería.</p>
+    </div>
+  </header>
+
+  <main class="container subpage-layout">
+    <article class="subpage-content">
+      <h2>El corazón joven del pueblo</h2>
+      <p>La <strong>Asociación Cultural Los Castaños</strong> es el pilar social fundamental de Morla de la Valdería. Gestionada principalmente por los jóvenes del pueblo, esta asociación desempeña un papel clave para asegurar que la vida en La Valdería siga latiendo con fuerza.</p>
+      
+      <p>Su nombre rinde homenaje a los emblemáticos castaños centenarios que rodean nuestro entorno natural, un símbolo de raíces profundas, resistencia y cobijo, valores que la asociación promueve entre todos los vecinos.</p>
+
+      <h3>¿Qué hacemos?</h3>
+      <ul style="line-height: 1.8; margin-bottom: 2rem;">
+        <li><strong>Organización de las Fiestas Patronales:</strong> Somos los encargados de preparar y organizar las fiestas de San Bartolo y San Isidro, desde las verbenas hasta los campeonatos de mus y las cenas populares.</li>
+        <li><strong>Dinamización Cultural:</strong> Actuamos como agente activo en la preservación de las tradiciones, fomentando el arraigo y dando a conocer el patrimonio de nuestro valle.</li>
+        <li><strong>Participación Comunitaria:</strong> Organizamos actividades lúdicas, talleres, juegos infantiles y encuentros vecinales a lo largo del año para mantener unido al pueblo más allá del verano.</li>
+      </ul>
+
+      <h3>Únete a la familia</h3>
+      <p>Creemos que el futuro de los pequeños pueblos pasa por la implicación de su gente. Si tienes raíces en Morla, o simplemente te has enamorado de nuestro pueblo y quieres colaborar con el mantenimiento de sus tradiciones, ¡eres más que bienvenido a la Asociación Los Castaños!</p>
+      <p>Puedes seguir nuestra actividad y ponerte en contacto con nosotros a través de nuestro perfil oficial de Instagram.</p>
+    </article>
+    
+    <aside class="subpage-sidebar">
+      <div class="ig-widget">
+        <div class="ig-header">
+          <div class="ig-avatar"></div>
+          <div class="ig-info">
+            <span class="ig-name">morladelavalderia</span>
+            <span class="ig-sub">Cuenta Oficial</span>
+          </div>
+        </div>
+        <p class="ig-bio">Pueblo de León, en el valle del río Eria bajo la atenta mirada de La Castañal 🌰🏔️</p>
+        <a href="https://www.instagram.com/morladelavalderia/" class="ig-btn" target="_blank">Seguir en Instagram</a>
+      </div>
+    </aside>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h2>Morla</h2>
+          <p>Pedanía de Castrocontrigo en la comarca de la Valdería, provincia de León.</p>
+        </div>
+        <div class="footer-links-container">
+          <div class="footer-links-col">
+            <h4>Secciones</h4>
+            <a href="../historia/index.html">Historia Detallada</a>
+            <a href="../patrimonio/index.html">Patrimonio</a>
+            <a href="../turismo/index.html">Turismo</a>
+            <a href="../eventos/index.html">Eventos</a>
+          </div>
+          <div class="footer-links-col">
+            <h4>Comunidad</h4>
+            <a href="../blog/index.html">Blog Local</a>
+            <a href="https://tpv.morladelavalderia.es/">Sistema TPV</a>
+            <a href="https://www.instagram.com/morladelavalderia/" target="_blank" rel="noreferrer">Instagram</a>
+          </div>
+          <div class="footer-links-col">
+            <h4>Contacto</h4>
+            <a href="#" id="contactButton">Enviar Mensaje</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-logos">
+          <a href="https://www.castrocontrigo.es" target="_blank" title="Ayuntamiento de Castrocontrigo">
+            <img src="../logo_ayto.png" alt="Ayuntamiento de Castrocontrigo" style="height: 60px;">
+          </a>
+          <a href="../asociacion/index.html" title="Asociación Los Castaños / Morla de la Valdería" style="margin-left: 20px;">
+            <img src="../logo_asociacion.jpg" alt="Asociación Los Castaños" style="height: 60px; border-radius: 50%; box-shadow: 0 2px 6px rgba(0,0,0,0.15);">
+          </a>
+        </div>
+        <div class="footer-copyright" style="margin-top: 20px;">
+          &copy; 2026 Web de Morla de la Valdería. Todos los derechos reservados.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.querySelector('.mobile-nav-toggle');
+    const nav = document.querySelector('.site-nav');
+    if(toggle && nav) {
+      toggle.addEventListener('click', () => {
+        nav.classList.toggle('is-open');
+      });
+    }
+  </script>
+</body>
+</html>

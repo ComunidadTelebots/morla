@@ -5,66 +5,226 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Eventos - Morla de la Valdería</title>
   <link rel="stylesheet" href="../styles.css" />
-  <script src="../analytics.js"></script>
+  <script src="../search.js" charset="utf-8" defer></script>
+  <script src="../analytics.js" defer></script>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container">
-      <h1>Eventos y tradiciones</h1>
-      <button class="mobile-nav-toggle" type="button" aria-expanded="false" aria-controls="mainNav">
-        <span class="mobile-nav-icon" aria-hidden="true"></span>
-        <span>Menú</span>
-      </button>
-      <nav id="mainNav" class="site-nav" aria-label="Navegación de eventos">
-        <a href="../index.html">Inicio</a>
+  <header class="site-header subpage-header">
+    <div class="container top-bar">
+      <a href="../index.html" class="logo">Morla</a>
+      <button class="mobile-nav-toggle" aria-label="Menú">☰</button>
+      <nav class="site-nav">
+        <a href="#" class="search-trigger">🔍 Buscar</a>
         <a href="../historia/index.html">Historia</a>
-        <a href="../patrimonio/index.html">Patrimonio</a>
-        <a href="../turismo/index.html">Turismo</a>
-        <a class="instagram-link" href="https://www.instagram.com/morladelavalderia/" target="_blank" rel="noreferrer">📷 Instagram</a>
+        <a href="../turismo/index.html">Geografía</a>
+        <a href="../patrimonio/index.html">Arquitectura</a>
+        <a href="../eventos/index.html" class="active">Eventos</a>
+        <a href="../asociacion/index.html">Asociación</a>
+        <a href="../blog/index.html">Blog</a>
       </nav>
+    </div>
+    <div class="container hero-content">
+      <h1>Eventos y Tradiciones</h1>
     </div>
   </header>
 
-  <main class="container">
-    <section class="info-section">
-      <h2>Fiestas y celebraciones</h2>
-      <p>Morla mantiene las tradiciones de la Valdería con fiestas anuales, eventos populares y celebraciones religiosas que reúnen al pueblo y a los visitantes.</p>
-      <p>La iglesia de Santa Eulalia y la ermita del Santo Cristo de la Piedad siguen siendo puntos centrales en el calendario festivo, junto con actividades gastronómicas y culturales en el chiringuito y en la plaza.</p>
-    </section>
+  <main class="container subpage-layout">
+    <article class="subpage-content">
+      <h2>Nuestras Tradiciones</h2>
+      <p>A lo largo del año, Morla de la Valdería celebra diversas festividades que mantienen vivas las raíces, la alegría y el sentimiento de comunidad entre vecinos y visitantes.</p>
+      
+      <h3>Fiestas Patronales de San Bartolo (24 de agosto)</h3>
+      <p>Es la festividad principal del pueblo y el momento en el que Morla se llena de vida. Aunque el día grande es el <strong>24 de agosto</strong>, las celebraciones suelen extenderse durante varios días (típicamente del 22 al 25 de agosto).</p>
+  <h3>Programa Detallado de Fiestas 2026 (22 al 25 de Agosto)</h3>
+      <p>Este es el programa oficial de actividades para los días grandes de Morla de la Valdería. ¡No te pierdas nada!</p>
+      
+      <div class="program-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin: 30px 0;">
+        
+        <div class="program-day" style="background: var(--surface); padding: 20px; border-radius: 8px; border-left: 4px solid var(--primary);">
+          <h4 style="color: var(--primary); margin-top: 0;">SÁBADO 22 DE AGOSTO DE 2026</h4>
+          <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.95rem;">
+            <li><strong>16:30h</strong> Campeonato de Mus</li>
+            <li><strong>18:30h</strong> Hinchables</li>
+            <li><strong>21:30h</strong> Cena Popular</li>
+            <li><strong>00:00h</strong> Fiesta del Chupito</li>
+            <li><strong>00:05h</strong> Torneo Beerpong</li>
+          </ul>
+        </div>
+        
+        <div class="program-day" style="background: var(--surface); padding: 20px; border-radius: 8px; border-left: 4px solid var(--accent);">
+          <h4 style="color: var(--accent); margin-top: 0;">DOMINGO 23 DE AGOSTO DE 2026</h4>
+          <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.95rem;">
+            <li><strong>12:00h</strong> Vermouth con música y baile</li>
+            <li><strong>18:30h</strong> Concurso dibujo infantil</li>
+            <li><strong>19:00h</strong> Chorizada</li>
+            <li><strong>19:30h</strong> Bingo</li>
+            <li><strong>00:00h</strong> 🎸 Actuación de CIUDAD TRIBUTO</li>
+            <li><strong>01:30h</strong> Bingo nocturno</li>
+          </ul>
+        </div>
+        
+        <div class="program-day" style="background: var(--surface); padding: 20px; border-radius: 8px; border-left: 4px solid var(--primary);">
+          <h4 style="color: var(--primary); margin-top: 0;">LUNES 24 DE AGOSTO DE 2026 (Día Grande)</h4>
+          <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.95rem;">
+            <li><strong>12:30h</strong> Misa en honor a San Bartolomé, pasacalles y baile con vermouth</li>
+            <li><strong>18:30h</strong> Concurso Tortilla</li>
+            <li><strong>19:00h</strong> Charanga Watake</li>
+            <li><strong>20:15h</strong> Concurso Porrón</li>
+            <li><strong>23:00h</strong> 🎸 Actuación de ROCKSONIC</li>
+            <li><strong>01:30h</strong> Bingo en el descanso</li>
+          </ul>
+        </div>
+        
+        <div class="program-day" style="background: var(--surface); padding: 20px; border-radius: 8px; border-left: 4px solid var(--accent);">
+          <h4 style="color: var(--accent); margin-top: 0;">MARTES 25 DE AGOSTO DE 2026</h4>
+          <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.95rem;">
+            <li><strong>13:00h</strong> Misa en honor a los difuntos, pasacalles y baile con vermouth</li>
+            <li><strong>17:00h</strong> Juegos Infantiles</li>
+            <li><strong>19:00h</strong> Chocolatada</li>
+            <li><strong>19:30h</strong> 🎸 Grupo MEDIANOCHE (Pase 1 hasta 21:30h)</li>
+            <li><strong>22:50h</strong> Sorteo Rifa</li>
+            <li><strong>23:00h</strong> 🎸 Grupo MEDIANOCHE (Pase 2 hasta 01:00h)</li>
+            <li><strong>01:15h</strong> Bingo Nocturno</li>
+          </ul>
+        </div>
+      </div>
 
-    <section class="events-grid">
-      <article class="event-card">
-        <h3>Fiestas de San Bartolomé y Santa Eulalia (2025)</h3>
-        <p>Cada verano, Morla celebra sus fiestas patronales en torno al 22 de agosto, con actividades en la plaza, verbena, música, concurso de pañuelos y comidas populares.</p>
-        <p>Cartel disponible en Instagram:</p>
-        <a href="https://www.instagram.com/p/DMxDIR-Mhcy/" target="_blank" rel="noreferrer">Cartel fiestas 2025</a>
-      </article>
-      <article class="event-card">
-        <h3>Semana Santa (2026)</h3>
-        <p>Durante la Semana Santa, el pueblo organiza rutas por el monte, comida popular, bingo, karaoke y actividades en el chiringuito.</p>
-        <p>Programa y cartel en Instagram:</p>
-        <a href="https://www.instagram.com/p/DVqv00hjNjJ/" target="_blank" rel="noreferrer">Cartel Semana Santa 2026</a>
-      </article>
-      <article class="event-card">
-        <h3>Magosto (2025)</h3>
-        <p>En otoño se celebra el Magosto con recolección y asado de castañas, rutas por los castaños y encuentros familiares alrededor de la brasa.</p>
-        <p>Cartel e información visual en Instagram:</p>
-        <a href="https://www.instagram.com/p/DQBuKeRjCYW/" target="_blank" rel="noreferrer">Cartel Magosto 2025</a>
-      </article>
-      <article class="event-card">
-        <h3>Concurso de pañuelos (2026)</h3>
-        <p>Cada año se elige el diseño del pañuelo de fiestas mediante votación popular, con propuestas que se envían por Instagram y se exponen en el chirin.</p>
-        <p>Detalles y cartel en Instagram:</p>
-        <a href="https://www.instagram.com/p/DVwimCcDP99/" target="_blank" rel="noreferrer">Cartel concurso de pañuelos 2026</a>
-      </article>
-    </section>
+      <div style="margin-top: 60px;">
+        <h3>Carteles Oficiales</h3>
+        <p>A continuación puedes ver los carteles originales de las fiestas publicados en el Instagram oficial.</p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin-top: 30px;">
+          <!-- Cartel Embed -->
+          <div style="display: flex; justify-content: center;">
+            <iframe src="https://www.instagram.com/p/C-dhtfjIb6B/embed" width="400" height="480" frameborder="0" scrolling="no" allowtransparency="true" style="border-radius:12px; box-shadow:0 10px 30px rgba(92, 47, 19, 0.08); max-width: 100%;"></iframe>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top: 60px;">
+        <h3>Recuerdos de Fiestas</h3>
+        <p>Revive los mejores momentos de las fiestas patronales con nuestra galería de recuerdos.</p>
+        <div style="margin: 40px 0; display: flex; justify-content: center;">
+          <iframe src="https://www.instagram.com/p/C_EW295ILLB/embed" width="400" height="480" frameborder="0" scrolling="no" allowtransparency="true" style="border-radius:12px; box-shadow:0 10px 30px rgba(92, 47, 19, 0.08); max-width: 100%;"></iframe>
+        </div>
+      </div>
+
+      <style>
+        .custom-accordion {
+          margin-top: 40px;
+          background: var(--surface);
+          border-radius: 8px;
+          border-left: 4px solid var(--primary);
+          box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+          overflow: hidden;
+          transition: all 0.3s ease;
+        }
+        .custom-accordion:hover {
+          box-shadow: 0 8px 25px rgba(92, 47, 19, 0.08);
+        }
+        .custom-accordion summary {
+          padding: 20px 25px;
+          cursor: pointer;
+          font-family: var(--font-serif);
+          font-size: 1.5rem;
+          font-weight: 600;
+          color: var(--primary-dark);
+          list-style: none;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          user-select: none;
+          background: var(--surface);
+        }
+        .custom-accordion summary::-webkit-details-marker {
+          display: none;
+        }
+        .custom-accordion summary::after {
+          content: '+';
+          font-family: var(--font-sans);
+          font-size: 2rem;
+          font-weight: 300;
+          color: var(--accent);
+          transition: transform 0.3s ease;
+        }
+        .custom-accordion[open] summary::after {
+          content: '−';
+          transform: rotate(180deg);
+        }
+        .custom-accordion-content {
+          padding: 0 25px 25px 25px;
+          color: var(--text);
+        }
+      </style>
+      <details class="custom-accordion">
+        <summary>Fiesta de San Isidro (15 de mayo de 2026)</summary>
+        <div class="custom-accordion-content">
+          <p style="margin-top: 0; margin-bottom: 0;">Como pueblo de profunda tradición agrícola y ganadera, Morla de la Valdería también celebra el <strong>15 de mayo de 2026</strong> la festividad de San Isidro Labrador. Es una jornada más íntima pero cargada de tradición, donde se pide por las buenas cosechas y la prosperidad de los campos de La Valdería.</p>
+        </div>
+      </details>
+
+      <h3>Programa Actualizado</h3>
+      <p>Para conocer el programa detallado y los horarios exactos de las fiestas de este año, te invitamos a seguir nuestro perfil oficial de Instagram o consultar el tablón de anuncios local durante las semanas previas a las fiestas.</p>
+    </article>
+    
+    <aside class="subpage-sidebar">
+      <div class="ig-widget">
+        <div class="ig-header">
+          <h3>@morladelavalderia</h3>
+          <p>Síguenos en Instagram</p>
+        </div>
+        <div class="ig-body">
+          <p>Descubre el día a día, las tradiciones, la naturaleza y la gente de Morla de la Valdería a través de nuestras fotografías.</p>
+          <a href="https://www.instagram.com/morladelavalderia/" target="_blank" rel="noopener noreferrer" class="ig-btn">
+            📷 Ver Perfil
+          </a>
+        </div>
+      </div>
+    </aside>
   </main>
 
   <footer class="site-footer">
     <div class="container">
-      <p>Subdominio de eventos - Morla de la Valdería</p>
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h2>Morla</h2>
+          <p>Pedanía de Castrocontrigo en la comarca de la Valdería, provincia de León.</p>
+        </div>
+        <div class="footer-links-container">
+          <div class="footer-links-col">
+            <h4>Secciones</h4>
+            <a href="../historia/index.html">Historia Detallada</a>
+            <a href="../patrimonio/index.html">Patrimonio</a>
+            <a href="../turismo/index.html">Turismo</a>
+            <a href="../eventos/index.html">Eventos</a>
+          </div>
+          <div class="footer-links-col">
+            <h4>Comunidad</h4>
+            <a href="../blog/index.html">Blog Local</a>
+            <a href="https://tpv.morladelavalderia.es/">Sistema TPV</a>
+            <a href="https://www.instagram.com/morladelavalderia/" target="_blank" rel="noreferrer">Instagram</a>
+          </div>
+          <div class="footer-links-col">
+            <h4>Contacto</h4>
+            <a href="#" id="contactButton">Enviar Mensaje</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-logos">
+          <a href="https://www.castrocontrigo.es" target="_blank" title="Ayuntamiento de Castrocontrigo">
+            <img src="../logo_ayto.png" alt="Ayuntamiento de Castrocontrigo" style="height: 60px;">
+          </a>
+          <a href="../asociacion/index.html" title="Asociación Los Castaños / Morla de la Valdería" style="margin-left: 20px;">
+            <img src="../logo_asociacion.jpg" alt="Asociación Los Castaños" style="height: 60px; border-radius: 50%; box-shadow: 0 2px 6px rgba(0,0,0,0.15);">
+          </a>
+        </div>
+        <div class="footer-copyright" style="margin-top: 20px;">
+          &copy; 2026 Web de Morla de la Valdería. Todos los derechos reservados.
+        </div>
+      </div>
     </div>
   </footer>
+
   <script src="../app.js"></script>
 </body>
 </html>

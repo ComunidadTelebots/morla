@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Administración del Blog - Morla</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <style>
+    .admin-container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 30px;
+      background: var(--surface);
+      border-radius: 18px;
+      box-shadow: 0 14px 30px rgba(92, 47, 19, 0.08);
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: var(--primary-dark);
+    }
+    .form-group input, .form-group textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 1rem;
+    }
+    .form-group textarea {
+      min-height: 200px;
+      resize: vertical;
+    }
+    .btn {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    .btn:hover {
+      background: var(--primary-dark);
+    }
+    .btn-danger {
+      background: #c94040;
+    }
+    .btn-danger:hover {
+      background: #a12b2b;
+    }
+    .post-list {
+      margin-top: 40px;
+    }
+    .admin-post-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px;
+      border-bottom: 1px solid #eee;
+    }
+    .admin-post-item:last-child {
+      border-bottom: none;
+    }
+    #message {
+      margin-top: 16px;
+      padding: 12px;
+      border-radius: 8px;
+      display: none;
+    }
+    .msg-success {
+      background: #eef7e9;
+      color: #21421c;
+    }
+    .msg-error {
+      background: #fde8e8;
+      color: #c94040;
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header" style="padding: 30px 0; background-image: none; background-color: var(--primary-dark);">
+    <div class="container">
+      <h1 style="font-size: 2rem; margin:0;">Admin Blog</h1>
+      <nav class="site-nav" style="margin-top:16px;">
+        <a href="index.html">Ver Blog</a>
+        <a href="../index.html">Inicio Web</a>
+        <a href="/logout">Cerrar Sesión</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="admin-container">
+      <h2>Nuevo Artículo</h2>
+      <form id="postForm">
+        <div class="form-group">
+          <label for="title">Título</label>
+          <input type="text" id="title" required placeholder="Ej: Las fiestas de agosto">
+        </div>
+        <div class="form-group">
+          <label for="content">Contenido</label>
+          <textarea id="content" required placeholder="Escribe aquí el contenido del artículo..."></textarea>
+        </div>
+        <button type="submit" class="btn">Publicar Artículo</button>
+      </form>
+      <div id="message"></div>
+
+      <div class="post-list">
+        <h2>Artículos Publicados</h2>
+        <div id="postsContainer">
+          <p>Cargando...</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    let csrfToken = '';
+
+    async function checkSession() {
+      try {
+        const response = await fetch('/api/session');
+        if (!response.ok) {
+          window.location.href = '/login?next=/blog/admin.html';
+          return;
+        }
+        const session = await response.json();
+        if (session.role !== 'editor') {
+          alert('No tienes permisos de editor para acceder al blog.');
+          window.location.href = '../index.html';
+          return;
+        }
+        csrfToken = session.csrf;
+        loadAdminPosts();
+      } catch (err) {
+        window.location.href = '/login?next=/blog/admin.html';
+      }
+    }
+
+    function showMessage(msg, isError = false) {
+      const msgDiv = document.getElementById('message');
+      msgDiv.textContent = msg;
+      msgDiv.className = isError ? 'msg-error' : 'msg-success';
+      msgDiv.style.display = 'block';
+      setTimeout(() => { msgDiv.style.display = 'none'; }, 4000);
+    }
+
+    async function loadAdminPosts() {
+      try {
+        const response = await fetch('/api/blog');
+        const data = await response.json();
+        const container = document.getElementById('postsContainer');
+        
+        if (!data.posts || data.posts.length === 0) {
+          container.innerHTML = '<p>No hay artículos.</p>';
+          return;
+        }
+
+        container.innerHTML = '';
+        data.posts.forEach(post => {
+          const div = document.createElement('div');
+          div.className = 'admin-post-item';
+          div.innerHTML = `
+            <div>
+              <strong>${post.title}</strong><br>
+              <small>${new Date(post.created_at * 1000).toLocaleDateString()}</small>
+            </div>
+            <button class="btn btn-danger" onclick="deletePost('${post.id}')">Eliminar</button>
+          `;
+          container.appendChild(div);
+        });
+      } catch (error) {
+        document.getElementById('postsContainer').innerHTML = '<p style="color:red;">Error al cargar.</p>';
+      }
+    }
+
+    async function deletePost(id) {
+      if (!confirm('¿Seguro que quieres eliminar este artículo?')) return;
+      try {
+        const response = await fetch('/api/blog', {
+          method: 'DELETE',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-Token': csrfToken
+          },
+          body: JSON.stringify({ id })
+        });
+        
+        if (response.ok) {
+          showMessage('Artículo eliminado.');
+          loadAdminPosts();
+        } else {
+          const data = await response.json();
+          showMessage(data.error || 'Error al eliminar', true);
+        }
+      } catch (err) {
+        showMessage('Error de red', true);
+      }
+    }
+
+    document.getElementById('postForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const title = document.getElementById('title').value;
+      const content = document.getElementById('content').value;
+      
+      try {
+        const response = await fetch('/api/blog', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-Token': csrfToken
+          },
+          body: JSON.stringify({ title, content })
+        });
+        
+        if (response.ok) {
+          showMessage('Artículo publicado con éxito.');
+          document.getElementById('postForm').reset();
+          loadAdminPosts();
+        } else {
+          const data = await response.json();
+          showMessage(data.error || 'Error al publicar', true);
+        }
+      } catch (err) {
+        showMessage('Error de red', true);
+      }
+    });
+
+    document.addEventListener('DOMContentLoaded', checkSession);
+  </script>
+</body>
+</html>

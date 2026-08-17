@@ -19,113 +19,135 @@
   <meta name="twitter:description" content="Bar y restaurante familiar en La Valdería. Cocina tradicional leonesa, terraza y ambiente local." />
   <meta name="twitter:image" content="https://morladelavalderia.es/og-image.png" />
   <link rel="stylesheet" href="styles.css" />
-  <script src="analytics.js"></script>
+  <script src="analytics.js" defer></script>
+  <script src="search.js" charset="utf-8" defer></script>
 </head>
 <body>
   <header class="site-header">
-    <div class="container">
-      <h1>Morla de la Valdería</h1>
-      <p class="subtitle">Pedanía de Castrocontrigo en la comarca de la Valdería, León</p>
-      <button class="mobile-nav-toggle" type="button" aria-expanded="false" aria-controls="mainNav">
-        <span class="mobile-nav-icon" aria-hidden="true"></span>
-        <span>Menú</span>
-      </button>
-      <nav id="mainNav" class="site-nav" aria-label="Navegación principal">
-        <a href="#datos">Datos</a>
+    <div class="container top-bar">
+      <a href="#" class="logo">Morla</a>
+      <button class="mobile-nav-toggle" aria-label="Menú">☰</button>
+      <nav class="site-nav">
+        <a href="#" class="search-trigger">🔍 Buscar</a>
+        <a href="#historia">Historia</a>
         <a href="#geografia">Geografía</a>
-        <a href="#patrimonio">Patrimonio</a>
         <a href="#arquitectura">Arquitectura</a>
-        <a href="#contacto">Contacto</a>
-        <a href="historia/index.html">Historia</a>
-        <a href="patrimonio/index.html">Patrimonio</a>
-        <a href="turismo/index.html">Turismo</a>
-        <a href="eventos/index.html">Eventos</a>
+        <a href="asociacion/index.html">Asociación</a>
+        <a href="blog/index.html">Blog</a>
         <a href="https://tpv.morladelavalderia.es/">TPV</a>
-        <a class="instagram-link" href="https://www.instagram.com/morladelavalderia/" target="_blank" rel="noreferrer">📷 Instagram</a>
       </nav>
+    </div>
+    <div class="container hero-content">
+      <h1>Morla de la Valdería</h1>
+      <p class="subtitle">Descubre el encanto, la historia y la naturaleza de nuestro pueblo leonés bajo la sombra de La Castañal.</p>
     </div>
   </header>
 
-  <main class="container">
-    <section class="hero">
-      <h2>Un pueblo pequeño con gran paisaje</h2>
-      <p>Morla de la Valdería es la última localidad de la comarca según la carretera que une Castrocontrigo con Truchas, asentada en el valle del río Eria.</p>
-    </section>
-
-    <section id="datos" class="stats-section">
-      <div class="stats-grid">
-        <article class="stat-card">
-          <h3>15 habitantes</h3>
-          <p>Población registrada en 2017.</p>
-        </article>
-        <article class="stat-card">
-          <h3>24736</h3>
-          <p>Código postal</p>
-        </article>
-        <article class="stat-card">
-          <h3>42°14′40″N</h3>
-          <p>Coordenadas geográficas</p>
-        </article>
-      </div>
-      <p class="stats-note">Morla pertenece al municipio de Castrocontrigo, en la provincia de León, Castilla y León.</p>
-    </section>
-
-    <section class="cards">
-      <article class="card">
-        <h3>Historia local</h3>
-        <p>Morla aparece descrita en el siglo XIX por Pascual Madoz como un pequeño lugar de casas, iglesia y ermitas, con una economía basada en la agricultura y la ganadería.</p>
-      </article>
-      <article class="card">
-        <h3>Patrimonio</h3>
-        <p>Destacan la iglesia de Santa Eulalia, la ermita del Santo Cristo de la Piedad y el cementerio tradicional del pueblo.</p>
-      </article>
-      <article class="card">
-        <h3>Entorno natural</h3>
-        <p>El paisaje está marcado por la sierra de Cabrera, el Teleno y el valle del Eria, con relieves rocosos y una geología muy representativa del entorno leonés.</p>
-      </article>
-    </section>
-
-    <section class="links-section">
-      <h2>Subdominios</h2>
-      <p class="section-description">Accede a páginas independientes para cada área temática de Morla de la Valdería.</p>
-      <div class="links-grid">
-        <a class="link-card" href="historia/index.html">Historia</a>
-        <a class="link-card" href="patrimonio/index.html">Patrimonio</a>
-        <a class="link-card" href="turismo/index.html">Turismo</a>
-        <a class="link-card" href="eventos/index.html">Eventos</a>
-        <a class="link-card" href="https://tpv.morladelavalderia.es/">TPV</a>
+  <main>
+    <!-- Historia -->
+    <section id="historia" class="editorial-section">
+      <div class="container editorial-grid">
+        <div class="text-col">
+          <h2>Historia Local</h2>
+          <p class="intro">Morla aparece descrita en el siglo XIX por Pascual Madoz como un pequeño lugar de casas, iglesia y ermitas.</p>
+          <p>La vida de este pueblo ha estado históricamente arraigada a la tierra, con una economía tradicional basada en la agricultura, la ganadería y el aprovechamiento de los recursos naturales que ofrecía el entorno del río Eria y las laderas cercanas.</p>
+          <p>Con el paso del tiempo, Morla de la Valdería ha mantenido su esencia de pueblo pequeño y resistente, preservando las tradiciones y la tranquilidad de antaño. El famoso castaño centenario, "La Castañal", sigue siendo testigo mudo del paso de las generaciones.</p>
+          
+          <div class="stats-grid">
+            <div class="stat-item">
+              <h3>24736</h3>
+              <p>Código Postal</p>
+            </div>
+            <div class="stat-item">
+              <h3>15</h3>
+              <p>Habitantes (2017)</p>
+            </div>
+            <div class="stat-item">
+              <h3>León</h3>
+              <p>Provincia</p>
+            </div>
+          </div>
+        </div>
+        <div class="img-col">
+          <!-- Placeholder de imagen vertical para historia (ejemplo usando imagen de castañal secundaria o foto antigua) -->
+          <img src="castanal_blog.jpg" alt="Historia de Morla" />
+        </div>
       </div>
     </section>
 
-    <section id="geografia" class="info-section">
-      <h2>Geografía</h2>
-      <p>Morla se encuentra en un territorio agreste junto a las estribaciones orientales de la sierra del Teleno y la sierra de Cabrera. El valle en el que se asienta se extiende del noroeste al sureste y está recorrido por arroyos que vierten al río Eria.</p>
-      <p>El terreno combina materiales ordovícicos muy resistentes como cuarcitas y pizarras, con sedimentos neógenos más blandos y superficies cuaternarias llenas de canchales y aluviones.</p>
+    <!-- Geografía -->
+    <section id="geografia" class="editorial-section">
+      <div class="container editorial-grid reversed">
+        <div class="text-col">
+          <h2>Geografía y Entorno</h2>
+          <p class="intro">Un territorio agreste junto a las estribaciones orientales de la sierra del Teleno y la sierra de Cabrera.</p>
+          <p>El valle en el que se asienta Morla se extiende del noroeste al sureste y está recorrido por arroyos que vierten al río Eria. Es un paisaje marcado por la presencia del agua y la roca.</p>
+          <p>El terreno combina materiales ordovícicos muy resistentes, como cuarcitas y pizarras, con sedimentos neógenos más blandos y superficies cuaternarias llenas de canchales y aluviones, creando un entorno natural rico y diverso ideal para rutas y paseos a la sombra de grandes árboles.</p>
+          <a href="#contacto" class="btn">Saber más</a>
+        </div>
+        <div class="img-col">
+          <img src="castanal_fondo.jpg" alt="Entorno natural de Morla" />
+        </div>
+      </div>
     </section>
 
-    <section id="patrimonio" class="info-section">
-      <h2>Patrimonio</h2>
-      <p>La iglesia parroquial de Santa Eulalia es el principal monumento de Morla, con una planta en cruz latina, mampostería de piedra y techo de pizarra, además de una espadaña parietal del siglo XVII.</p>
-      <p>La ermita del Santo Cristo de la Piedad, situada en la Plaza de Arriba, conserva la arquitectura rural tradicional de culto y mantiene viva la devoción local.</p>
-    </section>
-
-    <section id="arquitectura" class="info-section">
-      <h2>Arquitectura tradicional</h2>
-      <p>La construcción popular de Morla utiliza materiales locales: piedra de cuarcita y pizarra para muros y cubiertas, madera para vigas y estructuras, adobe para tabiques y paja de centeno en antiguas cubiertas.</p>
-      <p>Esta arquitectura refleja la forma de vida rural, con casas adaptadas al clima frío y recursos naturales de la zona.</p>
-    </section>
-
-    <section id="contacto" class="contact-section">
-      <h2>Contacto y colaboración</h2>
-      <p>¿Tienes material, fotos o relatos sobre Morla de la Valdería? Esta página está en desarrollo y cualquier aporte es bienvenido.</p>
-      <button id="contactButton">Enviar mensaje</button>
-      <div id="messageArea" class="message-area hidden"></div>
+    <!-- Patrimonio y Arquitectura -->
+    <section id="arquitectura" class="editorial-section">
+      <div class="container editorial-grid">
+        <div class="text-col">
+          <h2>Patrimonio y Arquitectura</h2>
+          <p class="intro">Piedra de cuarcita, pizarra, madera y adobe componen el ADN visual de nuestras calles.</p>
+          <p>El principal monumento de Morla es la iglesia parroquial de Santa Eulalia, que destaca por su planta en cruz latina, su mampostería de piedra, techo de pizarra y una espadaña parietal del siglo XVII.</p>
+          <p>La ermita del Santo Cristo de la Piedad, situada en la Plaza de Arriba, conserva la arquitectura rural tradicional. Las casas se adaptaron históricamente al clima frío de la provincia, utilizando paja de centeno en antiguas cubiertas y muros gruesos de piedra local que todavía pueden admirarse hoy.</p>
+        </div>
+        <div class="img-col">
+          <!-- Puedes sustituir esta imagen por una de la Iglesia o arquitectura -->
+          <img src="castanal_blog.jpg" alt="Arquitectura tradicional de Morla" />
+        </div>
+      </div>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="container">
-      <p>Web de Morla de la Valdería — Proyecto inicial</p>
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h2>Morla</h2>
+          <p>Pedanía de Castrocontrigo en la comarca de la Valdería, provincia de León.</p>
+        </div>
+        <div class="footer-links-container">
+          <div class="footer-links-col">
+            <h4>Secciones</h4>
+            <a href="historia/index.html">Historia Detallada</a>
+            <a href="patrimonio/index.html">Patrimonio</a>
+            <a href="turismo/index.html">Turismo</a>
+            <a href="eventos/index.html">Eventos</a>
+          </div>
+          <div class="footer-links-col">
+            <h4>Comunidad</h4>
+            <a href="blog/index.html">Blog Local</a>
+            <a href="https://tpv.morladelavalderia.es/">Sistema TPV</a>
+            <a href="https://www.instagram.com/morladelavalderia/" target="_blank" rel="noreferrer">Instagram</a>
+          </div>
+          <div class="footer-links-col">
+            <h4>Contacto</h4>
+            <a href="#" id="contactButton">Enviar Mensaje</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-logos">
+          <a href="https://www.castrocontrigo.es" target="_blank" title="Ayuntamiento de Castrocontrigo">
+            <img src="logo_ayto.png" alt="Ayuntamiento de Castrocontrigo" style="height: 60px;">
+          </a>
+          <a href="asociacion/index.html" title="Asociación Los Castaños / Morla de la Valdería" style="margin-left: 20px;">
+            <img src="logo_asociacion.jpg" alt="Asociación Los Castaños" style="height: 60px; border-radius: 50%; box-shadow: 0 2px 6px rgba(0,0,0,0.15);">
+          </a>
+        </div>
+        <div class="footer-copyright" style="margin-top: 20px;">
+          &copy; 2026 Web de Morla de la Valdería. Todos los derechos reservados.
+        </div>
+      </div>
     </div>
   </footer>
 
