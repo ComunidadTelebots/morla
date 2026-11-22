@@ -174,7 +174,7 @@ class MorlaHandler(BaseHTTPRequestHandler):
 
     def read_body(self):
         length = int(self.headers.get("Content-Length", "0"))
-        if length > MAX_BODY_BYTES:
+        if not 0 <= length <= MAX_BODY_BYTES:
             raise ValueError("Solicitud demasiado grande")
         return self.rfile.read(length)
 
@@ -256,7 +256,11 @@ class MorlaHandler(BaseHTTPRequestHandler):
         host = self.headers.get("Host", "").split(":")[0]
         if host == TPV_HOST and path == "/":
             path = "/tpv/index.html"
-        if path.startswith("/tpv"):
+        # Apply route permissions only to canonical paths.
+        if any(part in {".", ".."} for part in path.split("/")) or "//" in path or "\\" in path:
+            self.send_error_page(HTTPStatus.NOT_FOUND)
+            return
+        if path == "/tpv" or path.startswith("/tpv/"):
             if not self.require_session():
                 return
             if path == "/tpv/precios.html" and self.current_session()["role"] != "editor":
@@ -265,7 +269,14 @@ class MorlaHandler(BaseHTTPRequestHandler):
             self.serve_file(ROOT / path.lstrip("/"), private=True)
             return
 
-        self.serve_file(ROOT / (path.lstrip("/") or "index.html"), private=False)
+        public_path = Path(path.lstrip("/") or "index.html")
+        public_pages = {"historia", "patrimonio", "turismo", "eventos"}
+        if str(public_path) in {"index.html", "styles.css", "app.js", "analytics.js"} or (
+            public_path.parts and public_path.parts[0] in public_pages
+        ):
+            self.serve_file(ROOT / public_path, private=False)
+        else:
+            self.send_error_page(HTTPStatus.NOT_FOUND)
 
     def do_POST(self):
         parsed = urlparse(self.path)
@@ -279,7 +290,7 @@ class MorlaHandler(BaseHTTPRequestHandler):
 
     def serve_file(self, file_path, private):
         resolved = file_path.resolve()
-        if not str(resolved).startswith(str(ROOT)) or not resolved.is_file():
+        if resolved != file_path or not resolved.is_relative_to(ROOT) or not resolved.is_file():
             self.send_error_page(HTTPStatus.NOT_FOUND)
             return
         content = resolved.read_bytes()
@@ -336,7 +347,8 @@ class MorlaHandler(BaseHTTPRequestHandler):
             "expires_at": time.time() + SESSION_TTL_SECONDS,
         }
         next_url = parse_qs(parsed.query).get("next", ["/"])[0]
-        if not next_url.startswith("/") or next_url.startswith("//"):
+        if (not next_url.startswith("/") or next_url.startswith("//") or "\\" in next_url
+                or any(ord(char) < 32 or ord(char) == 127 for char in next_url)):
             next_url = "/"
         self.send_response(HTTPStatus.SEE_OTHER)
         self.send_header("Location", next_url)
